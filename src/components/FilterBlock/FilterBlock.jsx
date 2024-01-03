@@ -1,16 +1,14 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import './styles.css';
+import { CoinsContext } from '../../context/coinsContext';
+import { useFilterCoins } from '../../helpers/hooks/useFilterCoins';
 
-const FilterBlock = ({ coins, setCoins }) => {
-  const [value, setValue] = useState('');
-
-  useEffect(() => {
-    const filteredCoins = coins.filter((coin) => {
-      return coin.name.toLowerCase().includes(value.toLowerCase());
-    });
-    setCoins(filteredCoins);
-  }, [value]);
+const FilterBlock = ({ setCoins }) => {
+  const coinsContext = useContext(CoinsContext);
+  const {coins} = coinsContext
+  
+  const {setValue, value} = useFilterCoins(setCoins, coins)
 
   return (
     <div className="filter-block">
@@ -25,4 +23,4 @@ const FilterBlock = ({ coins, setCoins }) => {
   );
 };
 
-export default FilterBlock;
+export default React.memo(FilterBlock);

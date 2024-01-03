@@ -1,10 +1,15 @@
 /* eslint-disable react/prop-types */
+import { useContext } from 'react';
 import './styles.css';
+import { CoinsContext } from '../../context/coinsContext';
 
-const CoinsList = ({ coins }) => {
+const CoinsList = () => {
+  const coinsContext = useContext(CoinsContext);
+  const {filteredCoins} = coinsContext
+
   return (
     <ul className="coins-list">
-      {coins.map((coin) => {
+      {filteredCoins.map((coin) => {
         return (
           <li className="coin-item" key={coin.uuid}>
             <div className="coin-item__info">
@@ -16,8 +21,12 @@ const CoinsList = ({ coins }) => {
               <p style={{ color: coin.color }}>{coin.name}/USD</p>
             </div>
             <div className="coin-item__price">
-              <p style={{ color: coin.color }}>{(+coin.price).toFixed(2)}/USD</p>
-              <p style={{ color: coin.color }}>{(+coin.btcPrice).toFixed(5)}/BTC</p>
+              <p style={{ color: coin.color }}>
+                {(+coin.price).toFixed(2)}/USD
+              </p>
+              <p style={{ color: coin.color }}>
+                {(+coin.btcPrice).toFixed(5)}/BTC
+              </p>
             </div>
           </li>
         );

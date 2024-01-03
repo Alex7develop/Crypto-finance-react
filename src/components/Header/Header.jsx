@@ -1,6 +1,6 @@
 import './styles.css';
 
-const name = 'CRYPTO'
+const name = 'CRYPTO-FINANCE'
 
 const Header = () => {
   return <header className="header">{name}</header>;

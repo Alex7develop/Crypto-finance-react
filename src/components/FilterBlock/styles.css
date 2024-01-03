@@ -1,17 +1,34 @@
 .filter-block {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   padding: 10px;
   width: 100%;
-  background-color: aliceblue;
+  background: linear-gradient(45deg, #aee6e6, #a8c0ff);
   border-radius: 12px;
-  gap: 12px;
-  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.filter-block:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .input {
   padding: 10px 15px;
   border-radius: 12px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.9);
   border: none;
+  width: 100%;
+  font-size: 14px;
+  color: #333333;
+}
+
+.input::placeholder {
+  color: #999999;
+}
+
+.input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(170, 204, 255, 0.5);
 }

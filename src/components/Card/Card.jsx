@@ -1,11 +1,13 @@
 /* eslint-disable react/prop-types */
+import { WithRuBalance } from '../../helpers/hoc/withRuBalance';
 import './styles.css';
 
-const Card = ({ balance, setBalance }) => {
+const Card = ({ balance, setBalance, ruBalance }) => {
+  console.log({ruBalance});
   return (
     <div className="card">
       <div className="card-block">
-        <p>CRYPTO-FINANCE</p>
+        <p>Crypto-finance</p>
         <button
           onClick={() => setBalance((prev) => prev + 1000)}
         >
@@ -13,11 +15,11 @@ const Card = ({ balance, setBalance }) => {
         </button>
       </div> 
       <div className="card-block">
-        <p>ALEKSANDR</p>
+        <p>ALEKSANDR KIRILCHUK</p>
         <p>{balance} $</p>
       </div>
     </div>
   );
 };
 
-export default Card;
+export default WithRuBalance(Card);
